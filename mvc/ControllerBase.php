@@ -9,6 +9,7 @@ abstract class ControllerBase {
 	protected $view;
 	protected $template;
 	protected $request;
+	protected $ini;
 
 	// コンストラクタ
 	public function __construct(){
@@ -19,7 +20,7 @@ abstract class ControllerBase {
 	public function setConfig($config){
 		$this->config = $config;
 	}
-		
+
 	// コントローラーとアクションの文字列設定
 	public function setControllerAction($controller, $action){
 		$this->controller = $controller;
@@ -29,7 +30,11 @@ abstract class ControllerBase {
 	// Model, Viewの初期化
 	public function initialize(){
 		$this->initializeModel();
-		$this->initializeView();	
+		$this->initializeView();
+		$appConfigFile = dirname(__FILE__).'/../config/application.conf';
+		if( file_exists($appConfigFile) ){
+			$this->ini = parse_ini_file($appConfigFile, true);
+		}
 	}
 
 	// モデルインスタンス生成処理
