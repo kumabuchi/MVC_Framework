@@ -101,6 +101,11 @@ class ".$ClassName."Model extends ModelBase{
 
 class ".$ClassName."Controller extends ControllerBase{
 
+	// 共通の前処理を記述
+	protected function preAction(){
+
+	}
+
 }
 	";
 	file_put_contents($ModelFile, $ModelContext);
