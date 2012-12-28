@@ -1,0 +1,11 @@
+# アクセス制限 
+order deny,allow
+
+# アクセスコントロール
+RewriteEngine on
+RewriteRule ^images/(.*)$ public/images/$1 [L]
+RewriteRule ^javascripts/(.*)$ public/javascripts/$1 [L]
+RewriteRule ^stylesheets/(.*)$ public/stylesheets/$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule (.*)$ http://www.example.com/public/index.php?params=$1 [P,L]
