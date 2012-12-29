@@ -5,8 +5,6 @@ require_once(dirname(__FILE__).'/ModelBase.php');
 require_once(dirname(__FILE__).'/ViewBase.php');
 require_once(dirname(__FILE__).'/Request.php');
 
-new Dispatcher();
-
 class Dispatcher {
 
 	private $config;
